@@ -1,0 +1,24 @@
+{
+  "name": "nft-hardhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier -w ."
+  },
+  "keywords": [
+    "nft",
+    "hardhat",
+    "MetaMask",
+    "ipfs"
+  ],
+  "author": "Shunchao Wang",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "dotenv": "^16.0.2",
+    "hardhat": "^2.11.1",
+    "prettier": "^2.7.1"
+  }
+}
