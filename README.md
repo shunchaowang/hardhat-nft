@@ -11,3 +11,8 @@ GAS_REPORT=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.ts
 ```
+# Things to do
+## Develop 3 contracts
+1. Basic NFT
+2. Random IPFS NFT
+3. Dynamic SVG NFT
