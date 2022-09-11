@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "build": "npx hardhat clean & npx hardhat compile"
   },
   "keywords": [
     "nft",
@@ -16,6 +17,7 @@
   "author": "Shunchao Wang",
   "license": "ISC",
   "devDependencies": {
+    "@chainlink/contracts": "^0.4.1",
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
     "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@openzeppelin/contracts": "^4.7.3",
