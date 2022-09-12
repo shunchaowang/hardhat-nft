@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier -w .",
-    "build": "npx hardhat clean & npx hardhat compile"
+    "build": "npx hardhat clean && npx hardhat compile",
+    "deploy": "npx hardhat run scripts/00-deploy-mocks.ts && npx hardhat run scripts/01-deploy-basic-nft.ts"
   },
   "keywords": [
     "nft",

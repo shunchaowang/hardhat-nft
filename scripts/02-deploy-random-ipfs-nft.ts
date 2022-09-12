@@ -19,15 +19,20 @@ async function main() {
         ? 1
         : VERIFICATION_BLOCK_CONFIRMATIONS
 
-    console.log()
+    const RandomIpfsNft = await ethers.getContractFactory("RandomIpfsNft")
 
-    const basicNftContract = await ethers.getContractFactory("BasicNft")
-    const nft = await basicNftContract.deploy()
+    let vrfCoordinatorV2Address
+    // we need to get the mock vrf coordinator if we are on the development chain
+    if (developmentChains.includes(network.name)) {
+        const vrfCoordinatorV2Mock = await ethers.getContractAt("VRFCoordinatorV2Mock")
+    }
 
-    await nft.deployTransaction.wait(waitBlockConfirmations)
+    const randomIpfsNft = await RandomIpfsNft.deploy()
+
+    await randomIpfsNft.deployTransaction.wait(waitBlockConfirmations)
     console.log(`Waiting for the block confirmation ${waitBlockConfirmations}`)
 
-    console.log(`Nft deployed at ${nft.address}`)
+    console.log(`Random Ipfs Nft deployed at ${randomIpfsNft.address}`)
 
     console.log("--------------------------------------")
     const args: any[] = []
@@ -36,7 +41,7 @@ async function main() {
         process.env.ETHERSCAN_API_KEY
     ) {
         console.log("Now verifying...")
-        await verify(nft.address, args)
+        await verify(randomIpfsNft.address, args)
     }
 }
 

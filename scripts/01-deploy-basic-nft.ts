@@ -19,8 +19,6 @@ async function main() {
         ? 1
         : VERIFICATION_BLOCK_CONFIRMATIONS
 
-    console.log()
-
     const basicNftContract = await ethers.getContractFactory("BasicNft")
     const nft = await basicNftContract.deploy()
 
