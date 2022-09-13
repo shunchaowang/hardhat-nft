@@ -3,7 +3,7 @@ import {
     developmentChains,
     VERIFICATION_BLOCK_CONFIRMATIONS,
     DECIMALS,
-    INITIAL_PRICE
+    INITIAL_PRICE,
 } from "../helper-hardhat-config"
 
 import * as dotenv from "dotenv"
@@ -32,11 +32,20 @@ async function main() {
     const chainId = network.config.chainId
     if (chainId == 31337) {
         console.log("Local network detected! Deploying mocks...")
-        const VRFCoordinatorV2Mock = await ethers.getContractFactory("VRFCoordinatorV2Mock")
-        const vrfCoordinatorV2Mock = await VRFCoordinatorV2Mock.deploy(BASE_FEE, GAS_PRICE_LINK)
+        const VRFCoordinatorV2Mock = await ethers.getContractFactory(
+            "VRFCoordinatorV2Mock"
+        )
+        const vrfCoordinatorV2Mock = await VRFCoordinatorV2Mock.deploy(
+            BASE_FEE,
+            GAS_PRICE_LINK
+        )
 
-        await vrfCoordinatorV2Mock.deployTransaction.wait(waitBlockConfirmations)
-        console.log(`VRFCoordinatorV2Mock deployed at ${vrfCoordinatorV2Mock.address}`)
+        await vrfCoordinatorV2Mock.deployTransaction.wait(
+            waitBlockConfirmations
+        )
+        console.log(
+            `VRFCoordinatorV2Mock deployed at ${vrfCoordinatorV2Mock.address}`
+        )
 
         const MockAggregator = await ethers.getContractFactory("MockAggregator")
         const mockAggregator = await MockAggregator.deploy()
@@ -46,12 +55,13 @@ async function main() {
 
         console.log("Mocks Deployed!")
         console.log("----------------------------------")
-        console.log("You are deploying to a local network, you'll need a local network running to interact")
+        console.log(
+            "You are deploying to a local network, you'll need a local network running to interact"
+        )
         console.log(
             "Please run `yarn hardhat console --network localhost` to interact with the deployed smart contracts!"
         )
         console.log("----------------------------------")
-
     }
 }
 
@@ -61,4 +71,3 @@ main()
         console.error(error)
         process.exit(1)
     })
-

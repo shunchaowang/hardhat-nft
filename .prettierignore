@@ -8,3 +8,5 @@ coverage
 .*
 README.md
 coverage.json
+typechain-types
+package-lock.json
